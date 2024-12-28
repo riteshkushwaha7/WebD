@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GitHub User Info</title>
+    <style>
+        .main {
+            height: 30vw;
+            width: 30vw;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            border: 1px solid #ddd;
+            border-radius: 10px;
+            padding: 10px;
+        }
+        .center {
+            height: 25vw;
+            width: 25vw;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .center img {
+            height: 100%;
+            width: 100%;
+            border-radius: 50%;
+            object-fit: cover;
+        }
+        .name {
+            color: red;
+            font-size: 1.5em;
+            margin: 10px 0;
+        }
+        .followers {
+            color: green;
+            font-size: 1.2em;
+        }
+    </style>
+</head>
+<body>
+    <div class="main">
+        <div class="center">
+            <img src="" alt="User Avatar" class="dp">
+        </div>
+        <h4 class="name">Loading...</h4>
+        <h6 class="followers"></h6>
+    </div>
+
+    <script>
+        const xhr = new XMLHttpRequest();
+        xhr.open('GET', 'https://api.github.com/users/riteshkushwaha7', true);
+        
+        xhr.onreadystatechange = function () {
+            if (xhr.readyState === 4 && xhr.status === 200) {
+                const data = JSON.parse(xhr.responseText);
+                const followers = document.querySelector('.followers');
+                const name = document.querySelector('.name');
+                const dp = document.querySelector('.dp');
+
+                followers.textContent = `Followers: ${data.followers}`;
+                name.textContent = data.login;
+                dp.src = data.avatar_url; 
+            }
+        };
+        
+        xhr.send();
+    </script>
+</body>
+</html>

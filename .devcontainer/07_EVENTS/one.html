@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HTNL | EVENTS</title>
+</head>
+<body>
+    <h2>amazing events</h2>
+    <div>
+        <ul id="images">
+            <li id="img1"><img src="./download.jpeg" alt=""></li>
+            <li id="img2"><img src="./download (1).jpeg" alt=""></li>
+            <li id="img3"><img src="./download (2).jpeg" alt=""></li>
+            <li id="img4"><img src="./download (3).jpeg" alt=""></li>
+            <li id="img5"><img src="./download (4).jpeg" alt=""></li>
+            <li id="link"><a href="https://www.uitrgpv.ac.in/">UIT RGPV</a></li>
+        </ul>
+    </div>
+
+    <script>
+        // document.getElementById('img1').onclick = function(){
+        //     alert("image one is clicked")              // this is not recommentded to use it may arise with some errors
+        // }
+
+        // document.getElementById('img1').addEventListener('click', function(e){
+        //    console.log(e)
+        // },false)    // you may or may not riht false it is default set (called event propogation)
+        //false clled event bubbling **  --- bottom se top jata hai hiearichial
+        // true called event capturing ** --- top se bottom aata hai hiearchial
+        // e.stopPropogation() to stop bubbling
+
+        //type, timestamp, defaultPrevented, 
+        //target, toElement, srcElement, currentTarget,
+        // clientX, clientY, screenX, screenY,
+        //altkey, ctrlkey, shiftkey, keyCode
+
+        // document.getElementById('images').addEventListener('click', function(e){
+        //    console.log("clicked inside ul")
+        // },false)
+
+        // document.getElementById('img1').addEventListener('click', function(e){
+        //    console.log("img1 is clicked")
+        //    e.stopPropagation()
+        // },false)
+
+        // document.getElementById('link').addEventListener('click', function (e){
+        //     e.preventDefault()
+        //     e.stopPropagation()
+        //     console.log('link is clicked')
+        // })
+
+        document.querySelector('#images').addEventListener('click', function(e){
+            if(e.target.tagName === 'IMG'){
+    let remove = e.target.parentNode
+    remove.remove()
+} else{
+    e.target.remove()
+}
+        },false)
+
+    </script>
+</body>
+</html>

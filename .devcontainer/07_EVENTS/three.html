@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>CWC</h1>
+    <button id="stop">Stop</button>
+    <button id="start">change color</button>
+
+    <script>
+
+        // const inter = setInterval(function(){
+        //     console.log("Ritesh", Date.now());
+        // },3000)
+
+        // document.querySelector('#stop').
+        // addEventListener('click', function(){
+        //     clearInterval(iner)
+        // })
+
+        let intervalId; // Declare a variable to store the interval ID
+
+document.querySelector('#start').addEventListener('click', function () {
+    intervalId = setInterval(function () {
+        const hex = "0123456789ABCDEF";
+        let color = '#';
+        for (let i = 0; i <= 5; i++) {
+            color += hex[Math.floor(Math.random() * 16)];
+        }
+        document.querySelector('h1').style.color = color;
+    }, 1000);
+});
+
+document.querySelector('#stop').addEventListener('click', function () {
+    clearInterval(intervalId); // Use the stored interval ID to stop the interval
+});
+
+    </script>
+
+</body>
+</html>

@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>CWC</h1>
+    <button id="stop">Stop</button>
+    <script>
+
+        //setInterval(function(){
+        //    console.log("Hitesh");
+        //},2000)
+        
+        const sayritesh = function(){
+            console.log("Ritesh");
+        }
+        const c= setTimeout(sayritesh, 3000);// give only reference to function
+        document.querySelector('#stop').
+        addEventListener('click',function(){
+            clearTimeout(c) // to stop process inside the queue
+            console.log("STOPPED")
+        })
+
+
+
+
+
+    </script>
+</body>
+</html>

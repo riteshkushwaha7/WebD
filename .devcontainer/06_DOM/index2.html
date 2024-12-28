@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DOM</title>
+</head>
+<body>
+
+    <ul class="language">
+    </ul>
+   
+    <script>
+
+function addlan(lan){
+const li = document.createElement('li');
+li.innerHTML = `${lan}`;
+document.querySelector('.language').appendChild(li)
+
+}
+function toaddlan(lan){
+    const li = document.createElement('li');
+    li.appendChild(document.createTextNode(lan));
+    document.querySelector('.langauge').appendChild(li)
+    // pehle el element create kiye usmein ek node (text) insert kiye phir uss elment ko particular ul mein insert kr diye nice
+
+}
+
+
+// edit
+// use innerHTML / outerHTML / create new element and replace with some other element use (replaceWith())
+addlan("5")
+addlan("5")
+addlan("5")
+addlan("5")
+addlan("5")
+addlan("5")
+
+// to remvoe an element
+const lastelem = document.querySelector('li:last-child')
+lastelem.remove()
+
+
+    </script>
+</body>
+</html>
